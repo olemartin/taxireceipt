@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>List</title>
+	<link rel="stylesheet" href="public/styles/style.css">
+</head>
+
+<body>
+	<h1>Entries</h1>
+	<div class="form">
+
+	<table class="list">
+		<tr>
+			<th>Date</th>
+			<th>Tour Number</th>
+			<th>From</th>
+			<th>To</th>
+			<th>Project</th>
+			<th></th>
+			</tr>
+  	{{#items}}
+	  <tr>
+		<td>{{date}}</td>
+		<td>{{tourNum}}</td>
+		<td>{{from}}</td>
+		<td>{{to}}</td>
+		<td>{{project}}</td>
+		<td><a href="remove?id={{_id}}">Remove</a></td>
+		</tr>
+	{{/items}}
+	</table>
+	<br/><br/>
+	<a href="add">New entry</a>
+	</div>
+</body>
+</html>
