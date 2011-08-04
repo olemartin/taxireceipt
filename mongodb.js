@@ -27,28 +27,26 @@ function store(tourNum, from, to, project, callback){
 }
 
 function list(callback) {
-	mongodb.connect(mongo_url, function(err, conn){
-		conn.collection('tours', function(err, coll){
-			coll.find({}, {limit:100, sort:[['_id','desc']]}, function(err, cursor){
-		        cursor.toArray(function(err, items){
-		        	callback(items);
-		        });
-			});
-		});
-	});
+    mongodb.connect(mongo_url, function(err, conn){
+        conn.collection('tours', function(err, coll){
+            coll.find({}, {limit:100, sort:[['_id','desc']]}, function(err, cursor){
+                cursor.toArray(function(err, items){
+                    callback(items);
+                });
+            });
+        });
+    });
 }
 
 function remove(id, callback) {
-	mongodb.connect(mongo_url, function(err, conn){
-		conn.collection('tours', function(err, coll){
-			coll.remove({"_id":new ObjectID(id)},
-			function(err, removed) {
-				console.log("Removed")
-				console.log(removed);
-				callback();
-			});
-		});
-	});
+    mongodb.connect(mongo_url, function(err, conn){
+        conn.collection('tours', function(err, coll){
+            coll.remove({"_id":new ObjectID(id)},
+            function(err, removed) {
+                callback();
+            });
+        });
+    });
 }
 
 
