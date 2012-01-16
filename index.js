@@ -12,18 +12,29 @@ handle["/add"] = requestHandlers.add;
 handle["/remove"] = requestHandlers.remove;
 handle["/post"] = requestHandlers.post;
 
+/*
+########################################
+    CLOUDFOUNDRY SETUP
+########################################    
+*/
 if(process.env.VCAP_SERVICES){
   var env = JSON.parse(process.env.VCAP_SERVICES);
   var mongo = env['mongodb-1.8'][0]['credentials'];
 }
 else{
-  var mongo = {"hostname":"localhost","port":27017,"username":"",
-    "password":"","name":"","db":"db"}
+  var mongo = {
+      "hostname":"localhost",
+      "port":27017,
+      "username":"",
+      "password":"",
+      "name":"",
+      "db":"db"}
 }
-
 
 var host = process.env.VCAP_APP_HOST || 'localhost';
 var port = process.env.VCAP_APP_PORT || 8888
+
+
 
 mongo_url = mongodb.generate_mongo_url(mongo);
 

@@ -36,7 +36,6 @@ function post(request, response) {
 
 function remove(request, response) {
     id = require('url').parse(request.url, true).query.id;
-    console.log(id)
     mongodb.remove(id, function() {
         response.writeHead(302, {'Location': 'list'});
         response.end()
