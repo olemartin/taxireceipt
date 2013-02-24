@@ -6,7 +6,7 @@ function start(route, handle, host, port) {
         var pathname = url.parse(request.url).pathname;
         route(handle, pathname, request, response);
     }
-    http.createServer(onRequest).listen();
+    http.createServer(onRequest).listen(port);
 }
 
 exports.start = start;
