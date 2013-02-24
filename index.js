@@ -22,15 +22,15 @@ if(process.env.VCAP_SERVICES){
   var env = JSON.parse(process.env.VCAP_SERVICES);
   var mongo = env['mongodb-1.8'][0]['credentials'];
 }
-else if(process.env.OPENSHIFT_NOSQL_DB_HOST){
+else if(process.env.OPENSHIFT_MONGODB_DB_HOST){
   var mongo = {
-      "hostname":process.env.OPENSHIFT_NOSQL_DB_HOST,
-      "port":27017,
-      "username":process.env.OPENSHIFT_NOSQL_DB_USERNAME,
-      "password":process.env.OPENSHIFT_NOSQL_DB_PASSWORD,
-      "name":"",
+      "hostname":process.env.OPENSHIFT_MONGODB_DB_HOST,
+      "port":process.env.OPENSHIFT_MONGODB_DB_PORT,
+      "username":process.env.OPENSHIFT_MONGODB_DB_USERNAME,
+      "password":process.env.OPENSHIFT_MONGODB_DB_PASSWORD,
+      "name":"taxireceipt",
       "db":"db"}
-})
+}
 else{
   var mongo = {
       "hostname":"localhost",
