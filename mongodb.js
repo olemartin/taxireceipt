@@ -1,5 +1,5 @@
 var mongodb = require('mongodb');
-ObjectID = require('mongodb/lib/mongodb/bson/bson').ObjectID;
+ObjectID = mongodb.ObjectID;
 
 var generate_mongo_url = function(obj){
   obj.hostname = (obj.hostname || 'localhost');

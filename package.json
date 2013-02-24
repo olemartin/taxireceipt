@@ -1,0 +1,23 @@
+{
+  "name": "taxireceipt",
+  "version": "0.0.0",
+  "description": "Test application using mongodb",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/olemartin/taxireceipt.git"
+  },
+  "author": "Ole-Martin Mork",
+  "license": "BSD",
+  "gitHead": "8c980ae4edb8bcd1112d725ac6bbf664220339c7",
+  "readmeFilename": "README",
+  "dependencies" : {
+    "node-static" : "0.6.x",
+    "mustache" : "0.7.x",
+    "mongodb" : "1.2.x"
+  }
+}

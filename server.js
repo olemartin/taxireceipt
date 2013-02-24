@@ -3,8 +3,6 @@ var router = require("./router");
 var mongodb = require("./mongodb");
 var requestHandlers = require("./requestHandlers");
 
-require.paths.unshift('./node_modules');
-
 var handle = {}
 handle["/"] = requestHandlers.list;
 handle["/list"] = requestHandlers.list;
