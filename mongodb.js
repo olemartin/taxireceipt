@@ -1,4 +1,4 @@
-mongodb = require('mongodb');
+var mongodb = require('mongodb');
 ObjectID = require('mongodb/lib/mongodb/bson/bson').ObjectID;
 
 var generate_mongo_url = function(obj){
@@ -27,6 +27,7 @@ function store(tourNum, from, to, project, callback){
 }
 
 function list(callback) {
+    console.log(mongo_url);
     mongodb.connect(mongo_url, function(err, conn){
         conn.collection('tours', function(err, coll){
             coll.find({}, {limit:100, sort:[['_id','desc']]}, function(err, cursor){
