@@ -38,10 +38,16 @@ else{
       "name":"",
       "db":"db"}
 }
-
-var host = process.env.VCAP_APP_HOST || 'localhost';
-var port = process.env.VCAP_APP_PORT || 8888
-
+if (process.env.VCAP_APP_HOST) {
+	var host = process.env.VCAP_APP_HOST;
+	var port = process.env.VCAP_APP_PORT;
+} else if (process.env.OPENSHIFT_INTERNAL_PORT) {
+	var host = process.env.OPENSHIFT_INTERNAL_IP;
+	var port = process.env.OPENSHIFT_INTERNAL_PORT;
+} else {
+	var host = 'localhost';
+	var port = 8888	
+}
 mongo_url = mongodb.generate_mongo_url(mongo);
 
 console.log(host);
