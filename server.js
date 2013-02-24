@@ -27,7 +27,7 @@ else if(process.env.OPENSHIFT_MONGODB_DB_HOST){
       "username":process.env.OPENSHIFT_MONGODB_DB_USERNAME,
       "password":process.env.OPENSHIFT_MONGODB_DB_PASSWORD,
       "name":"taxireceipt",
-      "db":"db"}
+      "db":"taxireceipt"}
 }
 else{
   var mongo = {
