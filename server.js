@@ -18,7 +18,7 @@ handle["/post"] = requestHandlers.post;
 
 if(process.env.VCAP_SERVICES){
   var env = JSON.parse(process.env.VCAP_SERVICES);
-  var mongo = env['mongodb-1.8'][0]['credentials'];
+  var mongo = env['mongodb'][0]['credentials'];
 }
 else if(process.env.OPENSHIFT_MONGODB_DB_HOST){
   var mongo = {
